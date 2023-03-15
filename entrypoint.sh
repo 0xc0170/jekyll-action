@@ -3,6 +3,9 @@ set -e
 
 echo "Starting the Jekyll Action"
 
+chmod -R a+w /github/workspace
+git config --global --add safe.directory /github/workspace
+
 if [ -n "${INPUT_BUNDLER_VERSION}" ]; then
   echo "Installing bundler version specified by the user."
   gem install bundler -v ${INPUT_BUNDLER_VERSION}
